@@ -1,16 +1,32 @@
 import Link from "next/link";
+import { LogOut } from "lucide-react";
 
 const menus = [
 
-  "Overview",
+  {
+    name: "Overview",
+    href: "/dashboard",
+  },
 
-  "My Tasks",
+  {
+    name: "My Tasks",
+    href: "/dashboard/tasks",
+  },
 
-  "Proposals",
+  {
+    name: "Proposals",
+    href: "/dashboard/proposals",
+  },
 
-  "Payments",
+  {
+    name: "Payments",
+    href: "/dashboard/payments",
+  },
 
-  "Settings",
+  {
+    name: "Settings",
+    href: "/dashboard/settings",
+  },
 
 ];
 
@@ -18,47 +34,100 @@ export default function DashboardSidebar() {
 
   return (
 
-    <aside className="w-[280px] border-r border-white/10 bg-white/5 backdrop-blur-2xl p-8">
+    <aside className="w-[280px] min-h-screen flex flex-col justify-between border-r border-white/10 bg-white/5 backdrop-blur-2xl p-8">
 
-      <h1 className="text-3xl font-bold">
+      <div>
 
-        Skill
+        <h1 className="text-3xl font-bold">
 
-        <span className="text-violet-500">
+          Skill
 
-          Swap
+          <span className="text-violet-500">
 
-        </span>
+            Swap
 
-      </h1>
+          </span>
+
+        </h1>
+
+
+        <p className="text-gray-400 mt-2 text-sm">
+
+          Freelance Marketplace
+
+        </p>
 
 
 
-      <div className="mt-14 flex flex-col gap-4">
+        <div className="mt-14 flex flex-col gap-4">
 
-        {
+          {
 
-          menus.map((item) => (
+            menus.map((item) => (
 
-            <Link
+              <Link
 
-              key={item}
+                key={item.name}
 
-              href="#"
+                href={item.href}
 
-              className="px-5 py-4 rounded-2xl text-gray-300 hover:bg-white/10 hover:text-white transition"
+                className="
+                  px-5
+                  py-4
+                  rounded-2xl
+                  text-gray-300
+                  hover:bg-white/10
+                  hover:text-white
+                  transition
+                  duration-300
+                "
 
-            >
+              >
 
-              {item}
+                {item.name}
 
-            </Link>
+              </Link>
 
-          ))
+            ))
 
-        }
+          }
+
+        </div>
 
       </div>
+
+
+
+      {/* Logout */}
+
+      <button
+
+        className="
+          w-full
+          flex
+          items-center
+          justify-center
+          gap-3
+          py-4
+          rounded-2xl
+          border
+          border-red-500/20
+          bg-red-500/10
+          text-red-400
+          hover:bg-red-500/20
+          transition
+          duration-300
+          font-semibold
+          cursor-pointer
+        "
+
+      >
+
+        <LogOut size={18} />
+
+        Logout
+
+      </button>
 
     </aside>
 
