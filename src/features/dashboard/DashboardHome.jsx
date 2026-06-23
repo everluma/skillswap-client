@@ -4,6 +4,7 @@ import StatsCard from "@/components/dashboard/StatsCard";
 import RecentTasks from "@/components/dashboard/RecentTasks";
 import EarningsChart from "@/components/dashboard/EarningsChart";
 import ActivityTimeline from "@/components/dashboard/ActivityTimeline";
+import ProfileWidget from "@/components/dashboard/ProfileWidget";
 
 export default function DashboardHome() {
 
@@ -57,6 +58,8 @@ export default function DashboardHome() {
        <EarningsChart />
 
        <ActivityTimeline />
+
+       <ProfileWidget />
 
       </div>
 
