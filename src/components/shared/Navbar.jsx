@@ -54,18 +54,37 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4">
 
-            <Button
-              variant="ghost"
-              className="rounded-full text-white hover:text-white hover:bg-white/10"
-            >
-              Login
-            </Button>
+            <Link href="/login">
+           <Button
+    variant="ghost"
+    className="
+      rounded-full
+      text-white
+      hover:text-white
+      hover:bg-white/10
+      border border-white/10
+    "
+  >
+    Login
+  </Button>
+</Link>
 
-            <Button className="rounded-full px-7 bg-gradient-to-r from-violet-600 to-cyan-500 hover:scale-105 transition duration-300">
-
-              Get Started
-
-            </Button>
+            <Link href="/register">
+  <Button
+    className="
+      rounded-full
+      px-7
+      bg-gradient-to-r
+      from-violet-600
+      to-cyan-500
+      hover:scale-105
+      transition
+      duration-300
+    "
+  >
+    Get Started
+  </Button>
+</Link>
 
           </div>
 
