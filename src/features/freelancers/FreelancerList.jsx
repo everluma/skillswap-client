@@ -4,9 +4,9 @@ import { useState } from "react";
 
 import Container from "@/components/shared/Container";
 import FreelancerFilter from "@/components/freelancers/FreelancerFilter";
+import FreelancerCard from "@/components/freelancers/FreelancerCard";
 
 const freelancers = [
-
   {
     id: 1,
     name: "Sarah Johnson",
@@ -36,9 +36,7 @@ const freelancers = [
     rating: "5.0",
     skills: ["Figma", "UI", "UX"],
   },
-
 ];
-
 
 export default function FreelancerList() {
 
@@ -51,7 +49,6 @@ export default function FreelancerList() {
     const matchSearch = item.name
       .toLowerCase()
       .includes(search.toLowerCase());
-
 
 
     const matchCategory =
@@ -68,17 +65,20 @@ export default function FreelancerList() {
   });
 
 
+
   return (
 
     <section className="min-h-screen py-28">
 
       <Container>
 
+        {/* Heading */}
+
         <div className="text-center max-w-3xl mx-auto">
 
-          <div className="inline-flex px-5 py-2 rounded-full border border-white/10 bg-white/5">
+          <div className="inline-flex px-6 py-2 rounded-full border border-violet-500/20 bg-violet-500/10 text-violet-300 backdrop-blur-xl">
 
-            Top Freelancers
+            ✨ Top Freelancers Worldwide
 
           </div>
 
@@ -96,7 +96,7 @@ export default function FreelancerList() {
           </h1>
 
 
-          <p className="mt-6 text-gray-400">
+          <p className="mt-6 text-gray-400 text-lg">
 
             Find highly skilled freelancers worldwide.
 
@@ -105,6 +105,8 @@ export default function FreelancerList() {
         </div>
 
 
+
+        {/* Filter */}
 
         <div className="mt-16">
 
@@ -122,90 +124,54 @@ export default function FreelancerList() {
 
 
 
+        {/* Cards */}
+
         <div className="grid md:grid-cols-3 gap-8 mt-16">
 
           {
 
             filteredFreelancers.map((item) => (
 
-              <div
+              <FreelancerCard
 
                 key={item.id}
 
-                className="rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-2xl p-8"
+                freelancer={item}
 
-              >
-
-                <div className="w-20 h-20 rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 flex items-center justify-center text-2xl font-bold">
-
-                  {item.name.charAt(0)}
-
-                </div>
-
-
-                <h2 className="text-2xl font-bold mt-6">
-
-                  {item.name}
-
-                </h2>
-
-
-                <p className="text-violet-400 mt-2">
-
-                  {item.role}
-
-                </p>
-
-
-                <div className="flex justify-between mt-6 text-gray-300">
-
-                  <span>
-
-                    ⭐ {item.rating}
-
-                  </span>
-
-                  <span>
-
-                    {item.rate}
-
-                  </span>
-
-                </div>
-
-
-
-                <div className="flex flex-wrap gap-3 mt-8">
-
-                  {
-
-                    item.skills.map((skill) => (
-
-                      <span
-
-                        key={skill}
-
-                        className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm"
-
-                      >
-
-                        {skill}
-
-                      </span>
-
-                    ))
-
-                  }
-
-                </div>
-
-              </div>
+              />
 
             ))
 
           }
 
         </div>
+
+
+
+        {
+
+          filteredFreelancers.length === 0 && (
+
+            <div className="text-center mt-20">
+
+              <h2 className="text-3xl font-bold">
+
+                No Freelancer Found
+
+              </h2>
+
+
+              <p className="text-gray-400 mt-4">
+
+                Try another search or category.
+
+              </p>
+
+            </div>
+
+          )
+
+        }
 
       </Container>
 
