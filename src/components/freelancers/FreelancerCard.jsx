@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function FreelancerCard({ freelancer }) {
 
   return (
@@ -7,6 +9,7 @@ export default function FreelancerCard({ freelancer }) {
       {/* Glow */}
 
       <div className="absolute -top-20 -right-20 w-52 h-52 bg-violet-600/10 blur-[100px]" />
+
 
       {/* Avatar */}
 
@@ -84,17 +87,22 @@ export default function FreelancerCard({ freelancer }) {
 
 
 
-      <button
+      <Link href={`/freelancers/${freelancer.id}`}>
 
-        className="mt-8 w-full py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-cyan-500 font-semibold hover:scale-[1.02] transition"
+        <button
 
-      >
+          className="mt-8 w-full py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-cyan-500 font-semibold hover:scale-[1.02] transition duration-300 cursor-pointer"
 
-        View Profile
+        >
 
-      </button>
+          View Profile
+
+        </button>
+
+      </Link>
 
     </div>
 
   );
+
 }
