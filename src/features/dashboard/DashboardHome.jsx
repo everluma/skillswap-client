@@ -2,6 +2,8 @@ import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import DashboardTopbar from "@/components/dashboard/DashboardTopbar";
 import StatsCard from "@/components/dashboard/StatsCard";
 import RecentTasks from "@/components/dashboard/RecentTasks";
+import EarningsChart from "@/components/dashboard/EarningsChart";
+import ActivityTimeline from "@/components/dashboard/ActivityTimeline";
 
 export default function DashboardHome() {
 
@@ -50,7 +52,11 @@ export default function DashboardHome() {
 
          {/* Recent Tasks */}
 
-        <RecentTasks />
+       <RecentTasks />
+
+       <EarningsChart />
+
+       <ActivityTimeline />
 
       </div>
 
